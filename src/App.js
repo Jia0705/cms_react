@@ -1,38 +1,40 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
-import Home from "./pages/Home";
 import Dashboard from "./pages/Dashboard";
-import Login from "./pages/Login";
-import PostAdd from "./pages/PostAdd";
-import PostEdit from "./pages/PostEdit";
-import PostManage from "./pages/PostManage";
-import Signup from "./pages/Signup";
-import SinglePost from "./pages/SinglePost";
-import UserAdd from "./pages/UserAdd";
-import UserChangePassword from "./pages/UserChangePassword";
-import UserEdit from "./pages/UserEdit";
-import UserManage from "./pages/UserManage";  
-
+import Home from "./pages/Home";
+import Login from "./pages/LoginPage";
+import PostAdd from "./pages/PostAddPage";
+import PostEdit from "./pages/PostEditPage";
+import PostManage from "./pages/PostManagePage";
+import Signup from "./pages/SignupPage";
+import SinglePost from "./pages/SinglePostPage";
+import UserAdd from "./pages/UserAddPage";
+import UserChangePassword from "./pages/UserChangePasswordPage";
+import UserEdit from "./pages/UserEditPage";
+import UserManage from "./pages/UserManagePage";
 
 function App() {
   return (
     <div className="App">
       <BrowserRouter>
-      <Routes>
-      <Route path="/" element={<Home/>} />
-        <Route path="/dashboard" element={<Dashboard />} />
-        <Route path="/login" element={<Login />} />
-        <Route path="/postadd" element={<PostAdd />} />
-        <Route path="/postedit" element={<PostEdit />} />
-        <Route path="/postmanage" element={<PostManage />} />
-        <Route path="/signup" element={<Signup />} />
-        <Route path="/singlepost" element={<SinglePost />} />
-        <Route path="/useradd" element={<UserAdd />} />
-        <Route path="/userchangepassword" element={<UserChangePassword />} />
-        <Route path="/useredit" element={<UserEdit />} />
-        <Route path="/usermanage" element={<UserManage />} />
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/dashboard" element={<Dashboard />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/signup" element={<Signup />} />
+          <Route path="/manage-posts" element={<PostManage />} />
+          <Route path="/manage-posts/add" element={<PostAdd />} />
+          <Route path="/manage-posts/edit/:post_id" element={<PostEdit />} />
+          <Route path="/manage-users" element={<UserManage />} />
+          <Route path="/manage-users/add" element={<UserAdd />} />
+          <Route path="/manage-users/edit" element={<UserEdit />} />
+          <Route
+            path="/manage-users/change-password"
+            element={<UserChangePassword />}
+          />
+          <Route path="/post" element={<SinglePost />} />
         </Routes>
-        </BrowserRouter>
+      </BrowserRouter>
     </div>
   );
 }

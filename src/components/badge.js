@@ -1,18 +1,19 @@
 function Badge(props) {
-  const { status = "Default", color = "light" } = props;
-
+  const { color, children } = props;
   let badgeClass = "badge";
-  if (color === "warning") {
-    badgeClass === " bg-warning";
-  } else if (color === "success") {
-    badgeClass === " bg-success"; 
-  } else if (color === "secondary") {
-    badgeClass === " bg-secondary"; 
-  } else {
-    badgeClass === "bg-light"
+
+  if (color === "green") {
+    badgeClass += " bg-success";
+  } else if (color === "yellow") {
+    badgeClass += " bg-warning";
+  } else if (color === "turquoise") {
+    badgeClass += " bg-info";
+  } else if (color === "blue") {
+    badgeClass += " bg-primary";
+  } else if (color === "red") {
+    badgeClass += " bg-danger";
   }
 
-  return <span className={badgeClass}>{status}</span>;
+  return <span className={badgeClass}>{children}</span>;
 }
-
 export default Badge;

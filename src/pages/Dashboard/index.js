@@ -1,8 +1,11 @@
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from "react-router-dom";
+import Button from "../../components/button";
 
-function Dashboard () {
-    return (
-        <div className="container mx-auto my-5" style={{maxWidth: "800px"}}>
+function DashboardPage() {
+  const navigate = useNavigate();
+
+  return (
+    <div className="container mx-auto my-5" style={{ maxWidth: "800px" }}>
       <h1 className="h1 mb-4 text-center">Dashboard</h1>
       <div className="row">
         <div className="col">
@@ -10,13 +13,24 @@ function Dashboard () {
             <div className="card-body">
               <h5 className="card-title text-center">
                 <div className="mb-1">
-                  <i className="bi bi-pencil-square"></i>
+                  <i
+                    className="bi bi-pencil-square"
+                    style={{ fontSize: "3rem" }}
+                  ></i>
                 </div>
                 Manage Posts
               </h5>
               <div className="text-center mt-3">
-                <Link to="/PostManage" className="btn btn-primary btn-sm"
-                  >Access</Link>
+                <Button
+                  color="primary"
+                  size="small"
+                  onClick={(event) => {
+                    event.preventDefault();
+                    navigate("/manage-posts");
+                  }}
+                >
+                  Access
+                </Button>
               </div>
             </div>
           </div>
@@ -26,24 +40,33 @@ function Dashboard () {
             <div className="card-body">
               <h5 className="card-title text-center">
                 <div className="mb-1">
-                  <i className="bi bi-people" ></i>
+                  <i className="bi bi-people" style={{ fontSize: "3rem" }}></i>
                 </div>
                 Manage Users
               </h5>
               <div className="text-center mt-3">
-                <Link to="/UserManage" className="btn btn-primary btn-sm"
-                  >Access</Link>
+                <Button
+                  color="primary"
+                  size="small"
+                  onClick={(event) => {
+                    event.preventDefault();
+                    navigate("/manage-users");
+                  }}
+                >
+                  Access
+                </Button>
               </div>
             </div>
           </div>
         </div>
       </div>
       <div className="mt-4 text-center">
-        <Link to="/" className="btn btn-link btn-sm"
-          ><i className="bi bi-arrow-left"></i> Back</Link>
+        <Link to="/" className="btn btn-link btn-sm">
+          <i className="bi bi-arrow-left"></i> Back
+        </Link>
       </div>
     </div>
-    );
+  );
 }
 
-export default Dashboard;
+export default DashboardPage;
